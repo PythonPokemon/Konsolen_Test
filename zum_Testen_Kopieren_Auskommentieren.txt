@@ -1,0 +1,98 @@
+﻿// Main Methode Anfang---------------------------------------------------------------------------------------------------|
+            //----------------------------------------------------------------------------------------------------------------------- Parsing
+            /* zum testen auskommentieren | also umwandung eines primitiven datentypes in einen anderen primitiven datentyp */
+
+            string ersterString = "15";
+            string zweiterString = "20";
+
+            int nummer1 = int.Parse(ersterString);
+            int nummer2 = int.Parse(zweiterString);
+
+            int ergebnis = nummer1 + nummer2;
+
+            Console.WriteLine(ergebnis);
+
+            //----------------------------------------------------------------------------------------------------------------------- Konstanten
+            // Konstanten müssen nach der deklaration initialisiert werden | also: const double PI; geht nicht! sondern: const double PI = 3.14159265359;
+            // können nach der initialisierung nicht mehr verändert werden!
+            // und wenn man auf Klassen Member ausßerhalb der methode zugreifen möchte muss man diese member erst 'static' machen!
+            // oder eine konstante sein!
+            Console.WriteLine(PI);
+            Console.WriteLine(wochen);
+            Console.WriteLine(monate);
+            Console.WriteLine("Mein Geburtstag ist am: " + geburtstag);
+
+            //----------------------------------------------------------------------------------------------------------------------- Methoden
+            // syntax: zugriffsmodofizierer static rückgabetyp/void name (parameter1, parameter2, optional){methodenkörper};
+
+            // Aufruf einer separaten Methode aus der Hauptmethode
+            Methoden_Name();
+
+            Methode_Mit_Parametern("hier wird nun ein string erwartet, da in der separaten methode das so übergeben wurde!");
+            string argument = "ich bin ein super text";
+
+            // bedeutet die referenzvariable 'argument' die den string gespeichert hat, wird der methode die ein string erwartet als argument übergeben!
+            // mann kann also auch eine refernzvariable der methode übergeben die ein string als Parameter erwartet!
+            Methode_Mit_Parametern(argument);
+
+            // Aufruf der return methode mit parametern | man siht aber keine konsolen ausgabe
+            Addiere(15, 23); 
+
+            // hier siht man die konsolenausgabe der vorherigen methode, da sie diesmal durch die referenzvariable aufgerufen wird!
+            int ergebnis_Return_Methode = Addiere(15, 23);
+            Console.WriteLine(ergebnis_Return_Methode);
+            // alternativ
+            Console.WriteLine(Addiere(15,23));
+            // oder methoden in methoden, richtig wild!
+            Console.WriteLine(Addiere(Addiere(1,2), Addiere(3,4))); // = 10
+
+            string freund1 = " ALI,";
+            string freund2 = " Hassan,";
+            string freund3 = " Fritz !";
+            Freunde_Grüßen(freund1, freund2, freund3);
+
+            Console.WriteLine(Berechnungs_Methode());
+            // Separate Methode | ohne rückgabewert & ohne parameterliste
+        public static void Methoden_Name()
+        {
+            Console.WriteLine("Separate Methode");
+            Console.ReadKey();
+        }
+        
+        // separate methode mit parametern
+        public static void Methode_Mit_Parametern(string meinText)
+        {
+            Console.WriteLine(meinText);
+            Console.ReadKey();
+        }
+
+        // separate methode mit Parametern und rückgabewert
+        public static int Addiere(int nummer1, int nummer2)
+        {
+            return nummer1 + nummer2; // = 38
+        }
+
+        
+        public static void Freunde_Grüßen(string freund1, string freund2, string freund3)
+        {
+            Console.WriteLine("Grüße gehen raus an meine freunde: " + freund1 + freund2 + freund3);
+        }
+
+        public static int Berechnungs_Methode()
+        {
+            Console.WriteLine("Gib bitte deine erste zahl ein: ");
+            string konsolenEingabe1 = Console.ReadLine();   // speichert die konsoleneingabe als string in der referenzvariable
+            int zahl1 = int.Parse(konsolenEingabe1);        // der Datentyp string in der referenzvariable (konsolenEingabe1) wird jetzt zum int umgewandelt und der referenzvariable (zahl1) zugewissen/gespeichert
+
+
+            Console.WriteLine("Gib bitte deine zweite zahl ein: ");
+            string konsolenEingabe2 = Console.ReadLine();
+            int zahl2 = int.Parse(konsolenEingabe2);
+
+            // Achtung ausgabe typ muss ja dann int sein wenn die string eigaben zu int umgewandelt wurden!
+            int Operation = zahl1 + zahl2;
+            Console.WriteLine("Ergebnis ist = " + Operation);
+            return Operation; // gibt das ergebnis wieder da es keine void methode ist, wird ein return erwartet
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------- Benutzereingabe

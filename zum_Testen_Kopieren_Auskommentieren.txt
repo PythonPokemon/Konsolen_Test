@@ -95,4 +95,35 @@
             return Operation; // gibt das ergebnis wieder da es keine void methode ist, wird ein return erwartet
         }
 
-        //----------------------------------------------------------------------------------------------------------------------- Benutzereingabe
+        //----------------------------------------------------------------------------------------------------------------------- Benutzereingabe Try  Catch
+            Console.WriteLine("Bitte trage eine Zahl ein");
+            string benutzereingabe = Console.ReadLine();
+
+            try
+            {
+
+                int umwandlung_String_zu_int = int.Parse(benutzereingabe);
+                int ergebnis = umwandlung_String_zu_int / 0;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("DivideByZeroException, wurde ausgelösst weil durch 0 geteilt wurde, ist nicht erlaubt!");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("FormatException, Fehler aufgetreten, bitte gib das richtige Format ein! = es wird eine Zahl erwartet! ");
+            }
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("ArgumentNullException, wenn nichts eingetragen wird kommt es auch zu einem fehler, trage bitte eine zahl ein!");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException, der eingebene Wert war zu lang");
+            }
+            finally
+            {
+                Console.WriteLine("Das ist wird immer ausgeführt!");
+            }
+            Console.ReadKey();
+            

@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
 
-namespace Konsolen_Test
+namespace Konsolen_Test     // Ordner Ebene
 {
-    public class Program
+    public class Program    // Klassen Ebene
     {
         // Member variablen sind innerhalb der klasse, aber nicht in der methode!
+        string name = "Fritz";
+        char zeichen = '!';
+        int alter = 21;
+        double größe = 1.90;
 
 
         // Konstante - Member
@@ -15,8 +19,8 @@ namespace Konsolen_Test
 
         // Startpunkt des Programmes | Hauptmethode
         static void Main(string[] args)
-        {   
-            
+        {
+           
 
         }//----------------------------------------------------------------------------------------------------------|Main Methode Ende
 
